@@ -1,0 +1,23 @@
+
+.label_items{
+
+    background-color: rgb(226, 53, 5);
+    color: white;
+    padding: 2px 5px;
+    margin: 2px;
+    border-radius: 2px;
+}
+.tooltip {
+    position: absolute;
+    top: -30px;
+    left: 0;
+    background: white;
+    border-radius: 2px;
+    padding: 5px 10px;
+    box-shadow: 2px 3px 10px 0px #ababab;
+    font-size: 12px;
+}
+
+.hide-tooltip {
+    display: none;
+}

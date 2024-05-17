@@ -1,0 +1,19 @@
+
+.app_header{
+    background: rgb(26, 148, 179);
+    color: white;
+    padding: 10px;
+    top: 0;
+    left: 0;
+    position: relative;
+    top: -8px;
+    left: -8px;
+    width: 100%;
+}
+.app_header .header_title{
+    font-size: 24px;
+    font-weight: bold;
+}
+.app_header span{
+    padding-right: 30px;
+}

@@ -1,0 +1,25 @@
+.list_item{
+ border: 1px solid rgb(196, 191,191);
+ border-radius: 2px ;
+ margin: 10px;
+ padding: 10px;
+
+}
+.list_item h4{
+    margin: 0 0 10px 0;
+
+}
+.discr{
+color: grey;
+margin-bottom: 10px;
+}
+.list_title{
+    display: flex;
+    justify-content: space-between;
+}
+.list_title label{
+    cursor: pointer;
+    font-size: 12px;
+    color: blue;
+
+}
