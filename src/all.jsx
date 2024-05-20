@@ -5,7 +5,8 @@ import Header from "./component/header";
 import Footer from "./component/footer";
 import Dummy from "./pages/dummy";
 import Usage from "./pages/usage"
-
+import { Provider } from "react-redux";
+import store from "./Redux/store";
 
 class All extends React.Component{
 
@@ -50,7 +51,8 @@ class All extends React.Component{
     }
     
     render(){
-        return (
+        return ( 
+        <Provider store={store}>
             <div className='App'>
 
             <Header Menuselete={this.handleMenuselete} />
@@ -62,6 +64,7 @@ class All extends React.Component{
             
             <Footer />
         </div>
+        </Provider>
         );
     }
 }
