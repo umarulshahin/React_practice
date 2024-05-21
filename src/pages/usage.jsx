@@ -1,6 +1,6 @@
 import "./usage.css";
 import { useDispatch, useSelector } from "react-redux";
-import { increment,decrement } from "../Redux/store";
+import { increment,decrement } from "../Redux_toolkit/valueSlice";
 
 function Usage(props) {
   const value = useSelector((store) => {

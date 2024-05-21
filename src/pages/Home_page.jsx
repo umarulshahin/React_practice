@@ -3,44 +3,27 @@ import Toole from "../component/Toole.jsx"
 import Simple_list from "../component/simple_list.jsx";
 import { MyContext,Mycontext2} from "./context.js";
 import Info from "../component/Info.jsx";
+import { useDispatch, useSelector } from "react-redux";
+import { getDatainfo } from "../Redux_toolkit/getDataSlice.jsx";
+import { fetchApi } from "../fetchApi.jsx";
 
 const Home_page=()=>{
     
-    const [data,setdata]=useState([])
+    // const [data,setdata]=useState([])
     const[activeState,setactiveState]=useState("All")
-
-      
-
     
-    useEffect(()=>{
-        
-        fetch("/data.json")
-           .then((data)=>{
-             return data.json();
-           })
-
-           .then((data)=>{
-            setdata(data)
-            
-           })
-
-    },[])
+    const dispatch=useDispatch()
+    const data =useSelector(state=>state.datainfo.data)
+    const Loading =useSelector(state=>state.datainfo.Loading)
+    const error=useSelector(state=>state.datainfo.error)
+  
+    useEffect(() => {
+        dispatch(getDatainfo());
+    }, []);
 
 
 
     const handlpageRefresh=()=>{
-
-        fetch("./data2.json")
-           .then((data)=>{
-
-            return data.json();
-
-           })
-
-           .then((data)=>{
-            setdata(data)
-            
-           })
     }
 
 
@@ -54,8 +37,9 @@ const Home_page=()=>{
     }
   
     const isDelete=(val)=>{
-       const new_arr=this.state.data.filter((elament)=> elament.id !==val.id );
-       setdata(new_arr)
+        dispatch(deletedata(val.id))
+    //    const new_arr=this.state.data.filter((elament)=> elament.id !==val.id );
+    //    setdata(new_arr)
        
     }
 
@@ -80,7 +64,6 @@ const Home_page=()=>{
             return false;
 
         });
-        console.log("Home Rendering")
         
        const memodata=useMemo(()=>{
         return{
@@ -99,6 +82,12 @@ const Home_page=()=>{
         return (
 
       <div>
+        {
+            Loading && <div style={{backgroundColor:"green"}}>Loading......</div>
+        }
+        {
+            error && <div style={{backgroundColor:"red"}}>{error}</div> 
+         }
 
          <Mycontext2.Provider value={100}>
          <Info  showLabel={memodata} />

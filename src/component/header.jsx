@@ -1,5 +1,8 @@
+import { useDispatch } from "react-redux";
 import "./header.css"
 function Header(props){
+  const dispatch=useDispatch()
+
     const{
       Menuselete
     }=props; 
@@ -20,7 +23,9 @@ function Header(props){
         }}>Contacts</span>
         
         <span onClick={()=>{
-          Menuselete('Logout')
+          dispatch({
+            type:"logout"
+          })
         }}>Logout</span>
   
       </div>

@@ -6,9 +6,8 @@ import Footer from "./component/footer";
 import Dummy from "./pages/dummy";
 import Usage from "./pages/usage"
 import { Provider } from "react-redux";
-import store from "./Redux/store";
 import Contact from "./pages/Contact";
-
+import store from "./Redux_toolkit/appStore";
 class All extends React.Component{
 
     constructor(props){
