@@ -6,10 +6,8 @@ import Info from "../component/Info.jsx";
 
 const Home_page=()=>{
     
-    const [showLabel,setshowLabel]=useState(true)
     const [data,setdata]=useState([])
     const[activeState,setactiveState]=useState("All")
-    const[message,setmessage]=useState("")
 
       
 
@@ -65,13 +63,8 @@ const Home_page=()=>{
         setactiveState(arg)
      
     }
-    
-    const handleShowLable=(trv)=>{
-        setshowLabel(trv.target.checked)
-    }
-   
-   
-      
+
+
         const new_arr=data.filter((x)=>{
 
             if (activeState==="All"){
@@ -106,17 +99,13 @@ const Home_page=()=>{
         return (
 
       <div>
-          <div>
-            <input type="checkbox" checked={showLabel} onChange={handleShowLable} />ShowLabel
-         </div>
+
          <Mycontext2.Provider value={100}>
          <Info  showLabel={memodata} />
 
-         <MyContext.Provider value={showLabel} > 
         <Toole pageRefresh={handlpageRefresh} lebalValue={activeState} onAction={onAction} count={data.length}>
            <Simple_list onLabelClick={handleonLabelclick} data={new_arr} onAction={isDelete}/>
         </Toole>
-        </MyContext.Provider>
         </Mycontext2.Provider>
 
         </div>

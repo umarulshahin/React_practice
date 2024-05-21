@@ -1,4 +1,3 @@
-import Label2 from "./Label2";
 import Label from "./label";
 import "./list.css"
 

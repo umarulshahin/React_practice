@@ -7,6 +7,7 @@ import Dummy from "./pages/dummy";
 import Usage from "./pages/usage"
 import { Provider } from "react-redux";
 import store from "./Redux/store";
+import Contact from "./pages/Contact";
 
 class All extends React.Component{
 
@@ -40,7 +41,7 @@ class All extends React.Component{
             case "Usage":
                 return <Usage key="about" name="Usage" />
             case "Contacts":
-                return <Dummy key="contacts" name="Contacts" />
+                return <Contact key="contacts" name="Contacts" />
             case "Logout":
                 return <Dummy key="logout" name="Logout"/>
                 

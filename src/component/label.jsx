@@ -1,13 +1,13 @@
 import React, { useState,useRef, useContext, useDebugValue } from "react";
 import "./label.css";
-import { MyContext,Mycontext2 } from "../pages/context";
 import Tooltip from "./tooltip";
+import { useSelector } from "react-redux";
 
 function Label(props) {
     const [showTooltip, setShowTooltip] = useState(false);
-    const val =useContext(MyContext)
     const style = props.isActive ? { background: "Green" } : { background: "red" };
     const refObj=useRef();
+    const val = useSelector((state)=>state.show_label)
 
     const handleMouseEnter = (evt) => {
 

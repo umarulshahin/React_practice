@@ -1,34 +1,67 @@
-import { createStore } from "redux";
+import { createStore,combineReducers } from "redux";
 
-const initialvalue={
-    value:0
-}
 
-const Reducer=(state=initialvalue,action)=>{
-       
+
+const value=(state=0,action)=>{
     switch(action.type){
+
         case "increment":
            
-            return {
-                ...state,
-                value:state.value +1
-            };
+            return state+1
+           
         case "decrement":
 
-            return {
-                ...state,
-                value:state.value-1
-            }
+            return state-1
+            
+        default:
+            return state
+        } 
+}
+
+const show_label=(state=true,action)=>{
+
+    switch(action.type){
+
+        case "show_label":
+            return action.payload
+            
         default:
             return state
 
     }
 
-    return state
-     
+    }
+
+function increment(){
+    return {
+        type:"increment"
+    }
+}   
+
+function decrement(){
+    return {
+        type :"decrement"
+    }
 }
 
+function show_labelcheck(payload){
+
+    return {
+        
+            type:"show_label",
+            payload:payload
+    }
+}
+
+const Reducer =combineReducers({
+        value ,
+        show_label
+    })    
 const store=createStore(Reducer)
 
 export default store;
-
+export{
+    increment,
+    decrement,
+    show_labelcheck
+}
